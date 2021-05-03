@@ -2,11 +2,10 @@ import GoogleFontLoader from 'react-google-font-loader';
 
 const Font = ({ elFont, text, size }) => {
   return (<>
-  <GoogleFontLoader
+    <GoogleFontLoader
       fonts={[
         {
-          font: `${elFont.family}`,
-      
+          font: `${elFont.family}`
         }
       ]}
     />
@@ -15,11 +14,11 @@ const Font = ({ elFont, text, size }) => {
         <h2 className="h6 d-flex aling-items-center justify-content-between">
           <span>{elFont.family}</span><small>{elFont.variants.length} variant(s)</small></h2>
         <p><span className="badge bg-dark">{elFont.category}</span></p>
-        <p style={{ fontFamily: `${elFont.family}`, 'fontSize': `${size}` }} className="sample">{text}</p>
+        <p style={{ fontFamily: `${elFont.family}`, 'fontSize': `${size}px` }} className="sample">{text}</p>
         <a rel="noopener noreferrer" target="_blank" className="text-danger" href={`https://fonts.google.com/specimen/${elFont.family}`}>Voir sur Google Fonts (ouvre un nouveau tab)</a>
       </div>
     </article>
-    </>
+  </>
   );
 };
 
