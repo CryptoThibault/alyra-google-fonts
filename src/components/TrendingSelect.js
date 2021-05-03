@@ -20,12 +20,12 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
       <div style={{'position': 'sticky', 'top': '0px'}}>
         <label className="fw-bold mb-2" htmlFor="sort">Afficher des polices</label>
         <select key="sort" className="form-select mb-4" onChange={handleFilterChange} >
-          <option value="date">Les plus récentes</option>
-          <option value="popular">Les plus populaires</option>
-          <option value="top">Top 10 trending</option>
+          <option value="Les plus récentes">Les plus récentes</option>
+          <option value="Les plus populaires">Les plus populaires</option>
+          <option value="Top 10 trending">Top 10 trending</option>
         </select>
         <div className="mb-3">
-          <label htmlFor="text" className="form-label fw-bold mb-3">Tapez votre text</label>
+          <label htmlFor="text" className="form-label fw-bold mb-3">Tapez votre texte</label>
           <textarea key="text" className="form-control" onChange={handleTextChange} defaultValue={text}></textarea>
         </div>
         <label htmlFor="range" className="form-label fw-bold mb-3">La taille des police</label>
