@@ -19,7 +19,7 @@ const FontsApp = () => {
         return response.json()
       })
       .then(data => {
-        setFonts(data.items.slice(0, 10))
+        setFonts(data.items.slice(0,10))
       })
       .catch((e) => {
         setError(e.message)
