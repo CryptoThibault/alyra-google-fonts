@@ -6,7 +6,7 @@ const FontsApp = () => {
   const [fonts, setFonts] = useState([])
   const [error, setError] = useState("")
   const [text, setText] = useState("Portez ce vieux whisky au juge blond qui fume !? 0123456789")
-  const [filter, setFilter] = useState("default")
+  const [filter, setFilter] = useState("date")
   const [size, setSize] = useState(20)
 
   useEffect(() => {
@@ -20,6 +20,7 @@ const FontsApp = () => {
       })
       .then(data => {
         setFonts(data.items)
+        console.log(data.items)
       })
       .catch((e) => {
         setError(e.message)
@@ -40,7 +41,7 @@ const FontsApp = () => {
         size={size}
         setSize={setSize}
       />
-      <FontList fonts={fonts} text={text} />
+      <FontList fonts={fonts} text={text} size={size} />
     </div>
   );
 };

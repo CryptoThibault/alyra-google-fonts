@@ -1,23 +1,21 @@
 const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
   const handleFilterChange = (e) => {
-    e.preventDefault()
     setFilter(e.target.value)
+    e.preventDefault()
   }
   const handleTextChange = (e) => {
     setText(e.target.value)
-    console.log(e.target.value)
-    console.log(text)
     e.preventDefault()
   }
   const handleSizeChange = (e) => {
-    e.preventDefault()
     setSize(e.target.value)
+    e.preventDefault()
   }
 
   return (
     <div className="row">
       <label>Afficher des polices</label>
-      <select onChange={handleFilterChange}>
+      <select onChange={handleFilterChange} >
         <option value="date">Les plus récentes</option>
         <option value="popular">Les plus populaires</option>
         <option value="top">Top 10 trending</option>
