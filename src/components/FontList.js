@@ -1,9 +1,11 @@
 import Font from './Font'
 
-const FontList = () => {
+const FontList = ({ fonts }) => {
   return (
     <div className="row">
-      < Font />
+      {fonts.map(
+        < Font />
+      )}
     </div>
   );
 };
