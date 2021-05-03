@@ -1,6 +1,6 @@
 const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
   const handleFilterChange = (e) => {
-    setFilter(e.target.value)
+    setFilter([e.target.textContent, e.target.value])
     e.preventDefault()
   }
   const handleTextChange = (e) => {
@@ -13,16 +13,13 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
   }
 
   return (
-  
-   
-  <div className="col-lg-3 mb-4">
-
-      <div style={{'position': 'sticky', 'top': '0px'}}>
+    <div className="col-lg-3 mb-4">
+      <div style={{ 'position': 'sticky', 'top': '0px' }}>
         <label className="fw-bold mb-2" htmlFor="sort">Afficher des polices</label>
         <select key="sort" className="form-select mb-4" onChange={handleFilterChange} >
-          <option value="Les plus récentes">Les plus récentes</option>
-          <option value="Les plus populaires">Les plus populaires</option>
-          <option value="Top 10 trending">Top 10 trending</option>
+          <option value="date">Les plus récentes</option>
+          <option value="popularity">Les plus populaires</option>
+          <option value="trending">Top 10 trending</option>
         </select>
         <div className="mb-3">
           <label htmlFor="text" className="form-label fw-bold mb-3">Tapez votre texte</label>
@@ -31,7 +28,7 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
         <label htmlFor="range" className="form-label fw-bold mb-3">La taille des police</label>
         <input type="range" className="form-range" key="range" min="8" max="48" step="1" value={size} onChange={handleSizeChange}></input>
       </div >
-  </div>
+    </div>
   );
 };
 
