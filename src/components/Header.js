@@ -6,4 +6,9 @@ const Header = () => {
     </header>
   )
 }
+<<<<<<< HEAD
 export default Header;
+=======
+
+export default Header;
+>>>>>>> e31345720b4b0e227d439afeebccb08be6030962

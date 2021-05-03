@@ -2,7 +2,7 @@ import Font from './Font'
 
 const FontList = () => {
   return (
-    <div>
+    <div className="row">
       < Font />
     </div>
   );
