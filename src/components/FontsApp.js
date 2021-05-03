@@ -22,8 +22,8 @@ const FontsApp = () => {
       }
 
       )
-  },[])
-  console.log('fonts') 
+  }, [])
+
   console.log(fonts)
   return (
     <div className="container">
