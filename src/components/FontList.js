@@ -1,5 +1,6 @@
 import Font from './Font'
 const FontList = ({ fonts, text, size, filter }) => {
+  console.log(filter[0])
   return (
     <div className="col-lg-9">
       <h2 className="mb-3">
