@@ -10,7 +10,8 @@ const FontsApp = () => {
   const [size, setSize] = useState(20)
 
   useEffect(() => {
-    const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+    const url = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+    //const url = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity`
     fetch(url)
       .then(response => {
         if (!response.ok) {
