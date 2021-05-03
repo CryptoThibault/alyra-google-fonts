@@ -16,8 +16,8 @@ const FontsApp = () => {
         return response.json()
       })
       .then(data => {
+        setFonts([data])
         console.log(data)
-        setFonts(data)
       })
       .catch((e) => {
         setError(e.message)
@@ -31,7 +31,7 @@ const FontsApp = () => {
         <div className="alert alert-danger mt-3 text-center" >{error}</div>
       }
       <TrendingSelect fonts={fonts} setFonts={setFonts} />
-      {/* <FontList fonts={fonts} /> */}
+      {/*<FontList fonts={fonts} />*/}
     </div>
   );
 };
