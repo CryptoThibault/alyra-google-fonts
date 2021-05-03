@@ -1,8 +1,6 @@
 const Footer = () => {
   return (
-    <div>
-
-    </div>
+    <footer class="p-3 text-center bg-dark text-white">With Love &amp; React for Alyra</footer>
   );
 };
 
