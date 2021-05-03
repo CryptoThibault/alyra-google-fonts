@@ -23,7 +23,7 @@ const FontsApp = () => {
       }
 
       )
-  })
+  }, [])
   return (
     <div className="container">
       {!!error &&
