@@ -1,6 +1,6 @@
 const Font = ({ font }) => {
   return (
-    <div key={font.family}>
+    <div>
       {font.family}
     </div>
   );
