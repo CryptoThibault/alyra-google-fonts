@@ -1,11 +1,13 @@
 import TrendingSelect from './TrendingSelect'
 import FontList from './FontList'
+import { useState } from 'react';
 
 const FontsApp = () => {
+  const [fonts, setFonts] = useState([])
   return (
     <div className="container">
-      <TrendingSelect />
-      <FontList />
+      <TrendingSelect fonts={fonts} setFonts={setFonts} />
+      <FontList fonts={fonts} />
     </div>
   );
 };

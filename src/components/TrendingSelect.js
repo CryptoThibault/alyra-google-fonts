@@ -1,6 +1,6 @@
 const TrendingSelect = () => {
   return (
-    <div>
+    <div className="row ">
 
     </div>
   );
