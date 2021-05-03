@@ -1,7 +1,7 @@
-const Font = () => {
+const Font = ({ font }) => {
   return (
-    <div>
-
+    <div key={font.family}>
+      {font.family}
     </div>
   );
 };
