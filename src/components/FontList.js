@@ -1,5 +1,5 @@
 import Font from './Font'
-const FontList = ({ fonts, text, size ,filter}) => {
+const FontList = ({ fonts, text, size, filter }) => {
   return (
     <div className="col-lg-9">
       <h2 className="mb-3">

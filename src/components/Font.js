@@ -2,11 +2,10 @@ import GoogleFontLoader from 'react-google-font-loader';
 
 const Font = ({ elFont, text, size }) => {
   return (<>
-  <GoogleFontLoader
+    <GoogleFontLoader
       fonts={[
         {
-          font: `${elFont.family}`,
-      
+          font: `${elFont.family}`
         }
       ]}
     />
@@ -19,7 +18,7 @@ const Font = ({ elFont, text, size }) => {
         <a rel="noopener noreferrer" target="_blank" className="text-danger" href={`https://fonts.google.com/specimen/${elFont.family}`}>Voir sur Google Fonts (ouvre un nouveau tab)</a>
       </div>
     </article>
-    </>
+  </>
   );
 };
 
