@@ -29,10 +29,11 @@ const FontsApp = () => {
   }, [])
 
   return (
-    <div className="container">
+    <div className="container min-vh-100">
       {!!error &&
         <div className="alert alert-danger mt-3 text-center" >{error}</div>
       }
+      <div className="row my-5">
       <TrendingSelect
         filter={filter}
         setFilter={setFilter}
@@ -42,6 +43,7 @@ const FontsApp = () => {
         setSize={setSize}
       />
       <FontList fonts={fonts} text={text} size={size} />
+      </div>
     </div>
   );
 };
