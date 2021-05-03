@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react';
 const FontsApp = () => {
   const [fonts, setFonts] = useState([])
   const [error, setError] = useState("")
-  const [text, setText] = useState("Portez ce vieux whisky au juge blond qui fume !? 0123456789")
-  const [filter, setFilter] = useState("Les plus récentes")
+  const [text, setText] = useState('Portez ce vieux whisky au juge blond qui fume !? 0123456789')
+  const [filter, setFilter] = useState(['Les plus récentes','date'])
   const [size, setSize] = useState(20)
 
   useEffect(() => {
-    const url = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+    const url = `https://www.googleapis.com/webfonts/v1/webfonts?sort=${filter[1]}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`
     //const url = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity`
     fetch(url)
       .then(response => {
@@ -27,7 +27,7 @@ const FontsApp = () => {
         setError(e.message)
       }
       )
-  }, [])
+  }, [filter])
 
   return (
     <div className="container min-vh-100">
