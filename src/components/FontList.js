@@ -1,9 +1,14 @@
 import Font from './Font'
-const FontList = ({ fonts, text, size }) => {
+const FontList = ({ fonts, text, size ,filter}) => {
   return (
-    <div className="row">
-      {fonts.map(el => { return < Font key={el.family} font={el} text={text} size={size} /> }
-      )}
+    <div className="col-lg-9">
+      <h2 className="mb-3">
+        <span className="badge bg-danger">{filter}</span>
+      </h2>
+      <section className="row mb-5">
+        {fonts.map(el => { return < Font key={el.family} elFont={el} text={text} size={size} /> }
+        )}
+      </section>
     </div>
   );
 };
