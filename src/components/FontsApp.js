@@ -6,11 +6,11 @@ const FontsApp = () => {
   const [fonts, setFonts] = useState([])
   const [error, setError] = useState("")
   const [text, setText] = useState("Portez ce vieux whisky au juge blond qui fume !? 0123456789")
-  const [filter, setFilter] = useState(["Les plus récentes", 'date'])
+  const [filter, setFilter] = useState({ txt: "Les plus récentes", id: 'date' })
   const [size, setSize] = useState(20)
 
   useEffect(() => {
-    const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_GOOGLE_API_KEY}&sort=${filter[1]}`
+    const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_GOOGLE_API_KEY}&sort=${filter.id}`
     fetch(url)
       .then(response => {
         if (!response.ok) {
@@ -19,7 +19,7 @@ const FontsApp = () => {
         return response.json()
       })
       .then(data => {
-        setFonts(data.items.slice(0,10))
+        setFonts(data.items.slice(0, 10))
       })
       .catch((e) => {
         setError(e.message)
