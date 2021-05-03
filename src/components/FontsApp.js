@@ -27,7 +27,6 @@ const FontsApp = () => {
       )
   }, [])
 
-  console.log(fonts)
   return (
     <div className="container">
       {!!error &&
