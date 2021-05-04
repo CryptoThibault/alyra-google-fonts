@@ -8,7 +8,7 @@ const FontList = ({ fonts, text, size, filter }) => {
       <section className="row mb-5">
         {fonts.map(el => { return < Font key={el.family} elFont={el} text={text} size={size} /> }
         )}
-          <button className="btn btn-danger dBlock col-6-lg">plus de fonts</button>
+          <button className="btn btn-danger">plus de fonts</button>
       </section>
     </div>
   );
