@@ -8,6 +8,8 @@ const FontsApp = ({ darkMode }) => {
   const [text, setText] = useState("Portez ce vieux whisky au juge blond qui fume !? 0123456789")
   const [filter, setFilter] = useState({ txt: "Les plus récentes", id: 'date' })
   const [size, setSize] = useState(20)
+  const [scale, setScale] = useState(10)
+  const [count , setCount] = useState(scale)
 
   useEffect(() => {
     document.body.className = darkMode ? "bg-dark text-light" : "bg-light"
@@ -23,13 +25,13 @@ const FontsApp = ({ darkMode }) => {
         return response.json()
       })
       .then(data => {
-        setFonts(data.items.slice(0, 10))
+        setFonts(data.items.slice(0, count))
       })
       .catch((e) => {
         setError(e.message)
       }
       )
-  }, [filter])
+  }, [filter,count])
 
   return (
     <div className="container vin-vh-100">
@@ -44,8 +46,18 @@ const FontsApp = ({ darkMode }) => {
           setText={setText}
           size={size}
           setSize={setSize}
+          scale= {scale}
+          setScale={setScale}
         />
-        <FontList fonts={fonts} text={text} size={size} filter={filter} />
+        <FontList 
+          fonts={fonts} 
+          text={text} 
+          size={size} 
+          filter={filter}
+          scale={scale} 
+          count={count}
+          setCount={setCount}
+        />
       </div>
     </div>
   );
