@@ -37,6 +37,7 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize ,scale , setSc
         </div>
       </div >
     </div>
+    
   );
 };
 export default TrendingSelect;
