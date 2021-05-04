@@ -1,6 +1,9 @@
 const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
   const handleFilterChange = (e) => {
-    setFilter([e.target.textContent, e.target.value])
+    setFilter([ e.target.value,e.target.textContent])
+    //console.log(e.target.textContent)
+   // console.log(e.target.selected.children)
+    console.log(e)
     e.preventDefault()
   }
   const handleTextChange = (e) => {
@@ -16,7 +19,7 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
     <div className="col-lg-3 mb-4">
       <div style={{ 'position': 'sticky', 'top': '0px' }}>
         <label className="fw-bold mb-2" htmlFor="sort">Afficher des polices</label>
-        <select key="sort" className="form-select mb-4" onChange={handleFilterChange} >
+        <select key="sort" className="form-select mb-4" onChange={handleFilterChange}>
           <option value="date">Les plus récentes</option>
           <option value="popularity">Les plus populaires</option>
           <option value="trending">Top 10 trending</option>
