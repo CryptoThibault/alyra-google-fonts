@@ -2,12 +2,16 @@ import TrendingSelect from './TrendingSelect'
 import FontList from './FontList'
 import { useEffect, useState } from 'react';
 
-const FontsApp = () => {
+const FontsApp = ({ darkMode }) => {
   const [fonts, setFonts] = useState([])
   const [error, setError] = useState("")
   const [text, setText] = useState("Portez ce vieux whisky au juge blond qui fume !? 0123456789")
   const [filter, setFilter] = useState({ txt: "Les plus récentes", id: 'date' })
   const [size, setSize] = useState(20)
+
+  useEffect(() => {
+    document.body.className = darkMode ? "bg-dark text-light" : "bg-light"
+  }, [darkMode])
 
   useEffect(() => {
     const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_GOOGLE_API_KEY}&sort=${filter.id}`
@@ -28,7 +32,7 @@ const FontsApp = () => {
   }, [filter])
 
   return (
-    <div className="container min-vh-100">
+    <div className="container vin-vh-100">
       {!!error &&
         <div className="alert alert-danger mt-3 text-center" >{error}</div>
       }
