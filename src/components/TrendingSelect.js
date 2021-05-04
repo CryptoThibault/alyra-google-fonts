@@ -1,9 +1,6 @@
 const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
   const handleFilterChange = (e) => {
-    setFilter([ e.target.value,e.target.textContent])
-    //console.log(e.target.textContent)
-   // console.log(e.target.selected.children)
-    console.log(e)
+    setFilter({ txt: e.target.selectedOptions[0].textContent, id: e.target.value })
     e.preventDefault()
   }
   const handleTextChange = (e) => {
