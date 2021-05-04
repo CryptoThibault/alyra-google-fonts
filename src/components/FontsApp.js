@@ -9,11 +9,15 @@ const FontsApp = ({ darkMode }) => {
   const [filter, setFilter] = useState({ txt: "Les plus récentes", id: 'date' })
   const [size, setSize] = useState(20)
   const [scale, setScale] = useState(10)
-  const [count , setCount] = useState(scale)
+  const [count, setCount] = useState(scale)
 
   useEffect(() => {
     document.body.className = darkMode ? "bg-dark text-light" : "bg-light"
   }, [darkMode])
+
+  useEffect(() => {
+    setCount(scale)
+  }, [scale])
 
   useEffect(() => {
     const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_GOOGLE_API_KEY}&sort=${filter.id}`
@@ -25,15 +29,13 @@ const FontsApp = ({ darkMode }) => {
         return response.json()
       })
       .then(data => {
-        setFonts(data.items.slice(0, count))  
-        setCount(scale)
-
+        setFonts(data.items.slice(0, count))
       })
       .catch((e) => {
         setError(e.message)
       }
       )
-  }, [filter,scale,count])
+  }, [filter, scale, count])
 
   return (
     <div className="container vin-vh-100">
@@ -49,15 +51,15 @@ const FontsApp = ({ darkMode }) => {
           size={size}
           setSize={setSize}
           setCount={setCount}
-          scale= {scale}
+          scale={scale}
           setScale={setScale}
         />
-        <FontList 
-          fonts={fonts} 
-          text={text} 
-          size={size} 
+        <FontList
+          fonts={fonts}
+          text={text}
+          size={size}
           filter={filter}
-          scale={scale} 
+          scale={scale}
           count={count}
           setCount={setCount}
         />
