@@ -3,7 +3,6 @@ const FontList = ({ fonts, text, size, filter ,count, setCount ,scale }) => {
   const handleClickCount = () =>{
     setCount(count + scale)
   }
-  console.log(fonts.length)
   return (
     <div className="col-lg-9">
       <h2 className="mb-3">

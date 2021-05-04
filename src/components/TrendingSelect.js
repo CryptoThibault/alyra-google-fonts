@@ -3,18 +3,15 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize ,scale , setSc
     setFilter({ txt: e.target.selectedOptions[0].textContent, id: e.target.value })
   }
   const handleTextChange = (e) => {
-
     setText(e.target.value)
   }
   const handleSizeChange = (e) => {
-
     setSize(e.target.value)
   }
   const handleClickScale = (e) => {
-    setScale(e.target.textContent)
-    setCount(scale)
-  }
+    setScale(Number(e.target.value))
 
+  }
 
   return (
     <div className="col-lg-3 mb-4">
@@ -34,13 +31,13 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize ,scale , setSc
         
         <label className="d-block fw-bold">Polices par page</label>
         <div className="btn-group  my-3" role="group" aria-label="Basic example">
-          <button type="button" className="btn btn-danger" disabled={scale === 10  ? true : false} onClick={handleClickScale}>10</button>
-          <button type="button" className="btn btn-danger" disabled={scale === 50  ? true : false}  onClick={handleClickScale}>50</button>
-          <button type="button" className="btn btn-danger" disabled={scale === 100  ? true : false}  onClick={handleClickScale}>100</button>
+          <button type="button" className="btn btn-danger" disabled={scale === 10} value="10" onClick={handleClickScale}>10</button>
+          <button type="button" className="btn btn-danger" disabled={scale === 50} value="50"  onClick={handleClickScale}>50</button>
+          <button type="button" className="btn btn-danger" disabled={scale === 100} value="100"  onClick={handleClickScale}>100</button>
         </div>
       </div >
     </div>
+    
   );
 };
-
 export default TrendingSelect;

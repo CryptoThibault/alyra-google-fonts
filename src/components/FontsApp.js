@@ -25,7 +25,9 @@ const FontsApp = ({ darkMode }) => {
         return response.json()
       })
       .then(data => {
-        setFonts(data.items.slice(0, count))
+        setFonts(data.items.slice(0, count))  
+        setCount(scale)
+
       })
       .catch((e) => {
         setError(e.message)
