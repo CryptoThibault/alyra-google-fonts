@@ -1,8 +1,7 @@
 import Font from './Font'
-const FontList = ({ fonts, text, size, filter, count, setCount, scale }) => {
+const FontList = ({ fonts, text, size, filter, scale, count, setCount }) => {
   const handleClickCount = () => {
     setCount(count + scale)
-    console.log(count)
   }
   return (
     <div className="col-lg-9">

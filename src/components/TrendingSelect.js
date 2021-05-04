@@ -1,4 +1,4 @@
-const TrendingSelect = ({ setFilter, text, setText, size, setSize, scale, setScale, setCount }) => {
+const TrendingSelect = ({ setFilter, text, setText, size, setSize, scale, setScale }) => {
   const handleFilterChange = (e) => {
     setFilter({ txt: e.target.selectedOptions[0].textContent, id: e.target.value })
   }

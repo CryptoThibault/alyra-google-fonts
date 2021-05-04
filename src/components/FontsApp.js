@@ -44,13 +44,11 @@ const FontsApp = ({ darkMode }) => {
       }
       <div className="row my-5">
         <TrendingSelect
-          filter={filter}
           setFilter={setFilter}
           text={text}
           setText={setText}
           size={size}
           setSize={setSize}
-          setCount={setCount}
           scale={scale}
           setScale={setScale}
         />
