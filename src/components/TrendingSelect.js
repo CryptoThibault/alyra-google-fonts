@@ -1,4 +1,4 @@
-const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
+const TrendingSelect = ({ setFilter, text, setText, size, setSize ,scale , setScale }) => {
   const handleFilterChange = (e) => {
     setFilter({ txt: e.target.selectedOptions[0].textContent, id: e.target.value })
     e.preventDefault()
@@ -10,6 +10,9 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
   const handleSizeChange = (e) => {
     setSize(e.target.value)
     e.preventDefault()
+  }
+  const handleClickScale = (e) => {
+    setScale(e.terget.textContent)
   }
 
   return (
@@ -30,9 +33,9 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize }) => {
         
         <label className="d-block fw-bold">Polices par page</label>
         <div className="btn-group  my-3" role="group" aria-label="Basic example">
-          <button type="button" className="btn btn-danger" disabled={true}>10</button>
-          <button type="button" className="btn btn-danger">50</button>
-          <button type="button" className="btn btn-danger">100</button>
+          <button type="button" className="btn btn-danger" disabled={scale && 10} onClick={handleClickScale}>10</button>
+          <button type="button" className="btn btn-danger" disabled={scale && 50}  onClick={handleClickScale}>50</button>
+          <button type="button" className="btn btn-danger" disabled={scale && 100}  onClick={handleClickScale}>100</button>
         </div>
       </div >
     </div>
