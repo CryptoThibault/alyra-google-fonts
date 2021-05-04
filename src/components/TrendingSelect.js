@@ -31,7 +31,7 @@ const TrendingSelect = ({ setFilter, text, setText, size, setSize ,scale , setSc
         <label htmlFor="range" className="form-label fw-bold mb-3">La taille des police</label>
         <input type="range" className="form-range" key="range" min="8" max="48" step="1" value={size} onChange={handleSizeChange}></input>
         
-        <label className="d-block fw-bold">Polices par page</label>
+        <label className=" fw-bold">Polices par page</label>
         <div className="btn-group  my-3" role="group" aria-label="Basic example">
           <button type="button" className="btn btn-danger" disabled={scale && 10} onClick={handleClickScale}>10</button>
           <button type="button" className="btn btn-danger" disabled={scale && 50}  onClick={handleClickScale}>50</button>
