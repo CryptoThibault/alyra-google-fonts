@@ -15,7 +15,7 @@ const FontList = ({ fonts, text, size, filter, scale, count, setCount ,hasNext,l
         {loading ? <p>Loading....</p> 
         : fonts.length < hasNext 
         ? <button className="btn btn-danger" onClick={handleClickCount}>Afficher plus de polices</button>  
-        : <button className="btn btn-danger" >Il n'y a plus de polices à afficher</button>
+        : <button className="btn btn-danger" disabled>Il n'y a plus de polices à afficher</button>
         }
       </div>
       </section>

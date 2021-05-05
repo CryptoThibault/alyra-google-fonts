@@ -9,7 +9,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem('darkMode')) || false)
 
   useEffect(() => {
-    document.body.className = darkMode ? 'bg-dark text-light' : 'bg-light'
+    document.body.className = darkMode ? 'bg-dark text-light' : 'bg-white'
     localStorage.setItem('darkMode', JSON.stringify(darkMode))
     console.log(darkMode)
   }, [darkMode])
