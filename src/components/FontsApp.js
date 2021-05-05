@@ -11,7 +11,7 @@ const FontsApp = () => {
   const [scale, setScale] = useState(JSON.parse(localStorage.getItem('scale')) || 10)
   const [count, setCount] = useState(scale)
   const [loading, setLoading] = useState(false)
-  const[hasNext,setHasNext] = useState("")
+  const [hasNext, setHasNext] = useState("")
 
   useEffect(() => {
     localStorage.setItem('filter', JSON.stringify(filter))
@@ -31,7 +31,7 @@ const FontsApp = () => {
   }, [scale])
 
   useEffect(() => {
-      setLoading(true)
+    setLoading(true)
     const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_GOOGLE_API_KEY}&sort=${filter.id}`
     fetch(url)
       .then(response => {
@@ -46,8 +46,8 @@ const FontsApp = () => {
       })
       .catch((e) => {
         setError(e.message)
-      }) 
-      .finally(()=>{
+      })
+      .finally(() => {
         setLoading(false)
       })
   }, [filter, count])
