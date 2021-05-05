@@ -1,8 +1,10 @@
 import Font from './Font'
-const FontList = ({ fonts, text, size, filter ,count, setCount ,scale }) => {
+const FontList = ({ fonts, text, size, filter ,count, setCount ,scale ,hasNext }) => {
   const handleClickCount = () =>{
     setCount(count + scale)
   }
+  console.log(hasNext)
+  console.log(fonts.length)
   return (
     <div className="col-lg-9">
       <h2 className="mb-3">
@@ -11,7 +13,7 @@ const FontList = ({ fonts, text, size, filter ,count, setCount ,scale }) => {
       <section className="row mb-5">
         {fonts.map(el => { return < Font key={el.family} elFont={el} text={text} size={size} /> }
         )}
-          <button className="btn btn-danger" onClick={handleClickCount}>plus de fonts</button>
+          <button className="btn btn-danger" onClick={handleClickCount} disabled={hasNext === fonts.length}>plus de fonts</button>
       </section>
     </div>
   );

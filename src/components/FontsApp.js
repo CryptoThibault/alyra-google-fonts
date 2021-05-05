@@ -10,12 +10,15 @@ const FontsApp = ({ darkMode }) => {
   const [size, setSize] = useState(20)
   const [scale, setScale] = useState(10)
   const [count , setCount] = useState(scale)
+  const [hasNext , setHasNext] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     document.body.className = darkMode ? "bg-dark text-light" : "bg-light"
   }, [darkMode])
 
   useEffect(() => {
+      setLoading(true)
     const url = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_GOOGLE_API_KEY}&sort=${filter.id}`
     fetch(url)
       .then(response => {
@@ -25,6 +28,7 @@ const FontsApp = ({ darkMode }) => {
         return response.json()
       })
       .then(data => {
+        setHasNext(data.items.length)
         setFonts(data.items.slice(0, count))  
         setCount(scale)
 
@@ -33,10 +37,14 @@ const FontsApp = ({ darkMode }) => {
         setError(e.message)
       }
       )
+      .finally(() => {
+      setLoading(false)
+    })
   }, [filter,scale,count])
 
   return (
     <div className="container vin-vh-100">
+      {loading && <p>Loading....</p>}
       {!!error &&
         <div className="alert alert-danger mt-3 text-center" >{error}</div>
       }
@@ -60,6 +68,7 @@ const FontsApp = ({ darkMode }) => {
           scale={scale} 
           count={count}
           setCount={setCount}
+          hasNext={hasNext}
         />
       </div>
     </div>
