@@ -13,7 +13,10 @@ const FontList = ({ fonts, text, size, filter, scale, count, setCount }) => {
       <section className="row mb-5">
         {fonts.map(el => { return < Font key={el.family} elFont={el} text={text} size={size} /> }
         )}
+        <article className="col-lg-12">
+
         <button className="btn btn-danger" onClick={handleClickCount}>Afficher plus de polices</button>
+        </article>
       </section>
     </div>
   );
