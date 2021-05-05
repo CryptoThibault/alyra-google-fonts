@@ -2,21 +2,30 @@ import TrendingSelect from './TrendingSelect'
 import FontList from './FontList'
 import { useEffect, useState } from 'react';
 
-const FontsApp = ({ darkMode }) => {
+const FontsApp = () => {
   const [fonts, setFonts] = useState([])
   const [error, setError] = useState("")
-  const [text, setText] = useState("Portez ce vieux whisky au juge blond qui fume !? 0123456789")
-  const [filter, setFilter] = useState({ txt: "Les plus récentes", id: 'date' })
-  const [size, setSize] = useState(20)
-  const [scale, setScale] = useState(10)
+  const [filter, setFilter] = useState(JSON.parse(localStorage.getItem('filter')) || { txt: "Les plus récentes", id: 'date' })
+  const [text, setText] = useState(JSON.parse(localStorage.getItem('text')) || "Portez ce vieux whisky au juge blond qui fume !? 0123456789")
+  const [size, setSize] = useState(JSON.parse(localStorage.getItem('size')) || 20)
+  const [scale, setScale] = useState(JSON.parse(localStorage.getItem('scale')) || 10)
   const [count, setCount] = useState(scale)
 
   useEffect(() => {
-    document.body.className = darkMode ? "bg-dark text-light" : "bg-light"
-  }, [darkMode])
+    localStorage.setItem('filter', JSON.stringify(filter))
+  }, [filter])
+
+  useEffect(() => {
+    localStorage.setItem('text', JSON.stringify(text))
+  }, [text])
+
+  useEffect(() => {
+    localStorage.setItem('size', JSON.stringify(size))
+  }, [size])
 
   useEffect(() => {
     setCount(scale)
+    localStorage.setItem('scale', JSON.stringify(scale))
   }, [scale])
 
   useEffect(() => {
@@ -44,6 +53,7 @@ const FontsApp = ({ darkMode }) => {
       }
       <div className="row my-5">
         <TrendingSelect
+          filter={filter}
           setFilter={setFilter}
           text={text}
           setText={setText}
