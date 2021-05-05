@@ -15,7 +15,7 @@ const Font = ({ elFont, text, size }) => {
           <span>{elFont.family}</span><small>{elFont.variants.length} variant{elFont.variants.length > 1 ? 's' : ''}</small></h2>
         <p><span className="badge bg-dark">{elFont.category}</span></p>
         <p style={{ fontFamily: `${elFont.family}`, 'fontSize': `${size}px` }} className="sample">{text}</p>
-        <a rel="noopener noreferrer" target="_blank" className="text-danger" href={`https://fonts.google.com/specimen/${elFont.family}`}>Voir sur Google Fonts (ouvre un nouveau tab)</a>
+        <a rel="noopener noreferrer" target="_blank" className="text-danger" href={`https://fonts.google.com/specimen/${elFont.family}`}>Voir sur Google Fonts</a>
       </div>
     </article>
   </>

@@ -2,20 +2,31 @@ import TrendingSelect from './TrendingSelect'
 import FontList from './FontList'
 import { useEffect, useState } from 'react';
 
-const FontsApp = ({ darkMode }) => {
+const FontsApp = () => {
   const [fonts, setFonts] = useState([])
   const [error, setError] = useState("")
-  const [text, setText] = useState("Portez ce vieux whisky au juge blond qui fume !? 0123456789")
-  const [filter, setFilter] = useState({ txt: "Les plus récentes", id: 'date' })
-  const [size, setSize] = useState(20)
-  const [scale, setScale] = useState(10)
-  const [count , setCount] = useState(scale)
-  const [hasNext , setHasNext] = useState(0)
-  const [loading, setLoading] = useState(false)
+  const [filter, setFilter] = useState(JSON.parse(localStorage.getItem('filter')) || { txt: "Les plus récentes", id: 'date' })
+  const [text, setText] = useState(JSON.parse(localStorage.getItem('text')) || "Portez ce vieux whisky au juge blond qui fume !? 0123456789")
+  const [size, setSize] = useState(JSON.parse(localStorage.getItem('size')) || 20)
+  const [scale, setScale] = useState(JSON.parse(localStorage.getItem('scale')) || 10)
+  const [count, setCount] = useState(scale)
 
   useEffect(() => {
-    document.body.className = darkMode ? "bg-dark text-light" : "bg-light"
-  }, [darkMode])
+    localStorage.setItem('filter', JSON.stringify(filter))
+  }, [filter])
+
+  useEffect(() => {
+    localStorage.setItem('text', JSON.stringify(text))
+  }, [text])
+
+  useEffect(() => {
+    localStorage.setItem('size', JSON.stringify(size))
+  }, [size])
+
+  useEffect(() => {
+    setCount(scale)
+    localStorage.setItem('scale', JSON.stringify(scale))
+  }, [scale])
 
   useEffect(() => {
       setLoading(true)
@@ -28,19 +39,13 @@ const FontsApp = ({ darkMode }) => {
         return response.json()
       })
       .then(data => {
-        setHasNext(data.items.length)
-        setFonts(data.items.slice(0, count))  
-        setCount(scale)
-
+        setFonts(data.items.slice(0, count))
       })
       .catch((e) => {
         setError(e.message)
       }
       )
-      .finally(() => {
-      setLoading(false)
-    })
-  }, [filter,scale,count])
+  }, [filter, count])
 
   return (
     <div className="container vin-vh-100">
@@ -56,16 +61,15 @@ const FontsApp = ({ darkMode }) => {
           setText={setText}
           size={size}
           setSize={setSize}
-          setCount={setCount}
-          scale= {scale}
+          scale={scale}
           setScale={setScale}
         />
-        <FontList 
-          fonts={fonts} 
-          text={text} 
-          size={size} 
+        <FontList
+          fonts={fonts}
+          text={text}
+          size={size}
           filter={filter}
-          scale={scale} 
+          scale={scale}
           count={count}
           setCount={setCount}
           hasNext={hasNext}
