@@ -10,6 +10,8 @@ const FontsApp = () => {
   const [size, setSize] = useState(JSON.parse(localStorage.getItem('size')) || 20)
   const [scale, setScale] = useState(JSON.parse(localStorage.getItem('scale')) || 10)
   const [count, setCount] = useState(scale)
+  const [loading, setLoading] = useState(false)
+  const[hasNext,setHasNext] = useState("")
 
   useEffect(() => {
     localStorage.setItem('filter', JSON.stringify(filter))
@@ -40,20 +42,22 @@ const FontsApp = () => {
       })
       .then(data => {
         setFonts(data.items.slice(0, count))
+        setHasNext(data.items.length)
       })
       .catch((e) => {
         setError(e.message)
-      }
-      )
+      }) 
+      .finally(()=>{
+        setLoading(false)
+      })
   }, [filter, count])
 
   return (
     <div className="container vin-vh-100">
-      {loading && <p>Loading....</p>}
-      {!!error &&
-        <div className="alert alert-danger mt-3 text-center" >{error}</div>
-      }
       <div className="row my-5">
+        {!!error &&
+          <div className="alert alert-danger mt-3 text-center" >{error}</div>
+        }
         <TrendingSelect
           filter={filter}
           setFilter={setFilter}
@@ -73,6 +77,7 @@ const FontsApp = () => {
           count={count}
           setCount={setCount}
           hasNext={hasNext}
+          loading={loading}
         />
       </div>
     </div>
