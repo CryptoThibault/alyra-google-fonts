@@ -35,7 +35,7 @@ const FontsApp = ({ darkMode }) => {
         setError(e.message)
       }
       )
-  }, [filter, scale, count])
+  }, [filter, count])
 
   return (
     <div className="container vin-vh-100">
