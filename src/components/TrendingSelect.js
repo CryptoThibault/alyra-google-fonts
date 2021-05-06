@@ -1,5 +1,6 @@
 const TrendingSelect = ({ filter, setFilter, text, setText, size, setSize, scale, setScale }) => {
   const handleFilterChange = (e) => {
+    window.scrollTo(0, 0)
     setFilter({ txt: e.target.selectedOptions[0].textContent, id: e.target.value })
   }
   const handleTextChange = (e) => {

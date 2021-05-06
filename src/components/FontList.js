@@ -3,6 +3,9 @@ const FontList = ({ fonts, text, size, filter, scale, count, setCount, hasNext, 
   const handleClickCount = () => {
     setCount(count + scale)
   }
+  const handleClickTop = () => {
+    window.scrollTo(0, 0)
+  }
   return (
     <div className="col-lg-9">
       <h2 className="mb-3">
@@ -17,6 +20,7 @@ const FontList = ({ fonts, text, size, filter, scale, count, setCount, hasNext, 
               ? <button className="btn btn-danger" onClick={handleClickCount}>Afficher plus de polices</button>
               : <button className="btn btn-danger" disabled>Il n'y a plus de polices à afficher</button>
           }
+          <button className="btn btn-danger ms-3" onClick={handleClickTop}>Remonter en haut</button>
         </div>
       </section>
     </div>
