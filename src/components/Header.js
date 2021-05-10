@@ -5,7 +5,7 @@ const Header = ({ darkMode, setDarkMode }) => {
   return (
     <header className="p-5 bg-danger text-white">
       <div className="form-check form-switch align-top">
-        <input key="switchMode"  className="form-check-input" type="checkbox" onChange={handleChangeDarkMode} checked={darkMode}></input>
+        <input id="switchMode"  className="form-check-input" type="checkbox" onChange={handleChangeDarkMode} checked={darkMode}></input>
         <label htmlFor="switchMode" className="form-check-label" >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className={darkMode ? "bi bi-sun" : "bi bi-moon"} viewBox="0 0 16 16">
             <path d={darkMode
