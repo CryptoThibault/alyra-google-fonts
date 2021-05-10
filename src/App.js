@@ -11,7 +11,6 @@ function App() {
   useEffect(() => {
     document.body.className = darkMode ? 'bg-dark text-light' : 'bg-white'
     localStorage.setItem('darkMode', JSON.stringify(darkMode))
-    console.log(darkMode)
   }, [darkMode])
 
   return (
