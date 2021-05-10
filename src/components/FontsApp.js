@@ -53,7 +53,7 @@ const FontsApp = () => {
   }, [filter, count])
 
   return (
-    <div className="container vin-vh-100">
+    <div className="container min-vh-100">
       <div className="row my-5">
         {!!error &&
           <div className="alert alert-danger mt-3 text-center" >{error}</div>
